@@ -10,7 +10,7 @@ import dlib
 from skimage import io
 from test import *
 
-
+#comment
 UPLOAD_FOLDER = './images'
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
