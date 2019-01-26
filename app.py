@@ -25,6 +25,15 @@ def triplet_loss(y_true, y_pred, alpha = 0.2):
     loss = tf.reduce_sum(tf.maximum(basic_loss, 0.0))    
     return loss
 
+@app.route('/')
+def home():
+    return render_template('welcome.html')
+
+@app.route('/favicon.ico')
+def fav():
+    print('Logo')
+    return render_template('welcome.html')
+
 @app.route('/upload')
 def home():
    return render_template('index.html')
