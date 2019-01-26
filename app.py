@@ -35,7 +35,7 @@ def fav():
     return render_template('welcome.html')
 
 @app.route('/upload')
-def home():
+def upload():
    return render_template('index.html')
 	
 @app.route('/uploader', methods = ['GET', 'POST'])
