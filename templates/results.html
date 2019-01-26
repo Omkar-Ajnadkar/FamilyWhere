@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+{% block title %}FamilyWhere{% endblock %}
+{% block head %}
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid unselectable"
+      style="background: url('../static/images/back1.jpg');
+            display: table;
+            overflow: hidden;
+            height: 100%;
+            min-height: 100%;
+            position: absolute;">
+
+        <h3 style="text-align:center;
+            color: white;
+            font-size: 3.0em;
+            padding-top: 20px;">
+    <b>Here are our Finds for Possible Guardian</b>
+
+    <br/>
+    <div class="card bg-dark">
+          <div class="card-body">
+            <h3 class="card-title">{{ possibles.first[0] }}</h3>
+            <h5 class="text-white">{{ possibles.first[1] }}</h5>
+            <p class="card-text text-white">{{ possibles.first[2] }}</p>
+          </div>
+        </div>
+    <br/>
+    <div class="card bg-dark">
+          <div class="card-body">
+            <h3 class="card-title">{{ possibles.second[0] }}</h3>
+            <h5 class="text-white">{{ possibles.second[1] }}</h5>
+            <p class="card-text text-white">{{ possibles.second[2] }}</p>
+          </div>
+        </div>
+        <br/>
+
+        <div class="card bg-dark">
+          <div class="card-body">
+            <h3 class="card-title">{{ possibles.third[0] }}</h3>
+            <h5 class="text-white">{{ possibles.third[1] }}</h5>
+            <p class="card-text text-white">{{ possibles.third[2] }}</p>
+          </div>
+        </div>
+        <br/>
+
+</div>
+{% endblock%}
+
+{% block script %}
+{% endblock %}

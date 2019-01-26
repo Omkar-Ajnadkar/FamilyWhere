@@ -27,6 +27,7 @@ import dlib
 from skimage import io
 import pickle
 
+from flask import Flask, render_template
 
 def triplet_loss(y_true, y_pred, alpha = 0.2):
     anchor, positive, negative = y_pred[0], y_pred[1], y_pred[2]
@@ -36,12 +37,19 @@ def triplet_loss(y_true, y_pred, alpha = 0.2):
     loss = tf.reduce_sum(tf.maximum(basic_loss, 0.0))    
     return loss
 
-
 FRmodel = load_model('./FRmodel.h5', custom_objects={'triplet_loss':triplet_loss})
+graph = tf.get_default_graph()
 
+# global graph
+# with graph.as_default():
+from pathlib import Path
+
+my_file_1 = Path('./database.pkl')
 with open('./database.pkl', 'rb') as pickle_file:
     database = pickle.load(pickle_file)
 
+with open('./info.pkl', 'rb') as pickle_file:
+    info = pickle.load(pickle_file)
 # database = pickle.load('./database.pkl')
 
 def test_image(filename):
@@ -71,16 +79,17 @@ def who_is_it(image_path, database, model):
             min_dist = dist
             identity = name
     distances.sort()
-    predictions ={}
-    for i in distances:
-        predictions[str(i+1)] = distances[i][1]
-    print("Here are top 3 guesses:")
-    # for i in range(4):
-    #     print("Guess " + str(i+1) + ": " + distances[i][1] + " (Confidence: " + str(round((1-distances[i][0])* 100,2)) + "%)")
-        #print ("it's " + str(identity) + ", the distance is " + str(min_dist))
-    #print(distances)    
-    return jsonify(predictions)         
+    print(distances)
+    possibles = {
+        "first": [info[distances[0][1]][1], info[distances[0][1]][2],info[distances[0][1]][3]],
+        "second": [info[distances[1][1]][1], info[distances[1][1]][2],info[distances[1][1]][3]],
+        "third": [info[distances[2][1]][1], info[distances[2][1]][2],info[distances[2][1]][3]]
+    }
+    # print(possibles)
+    return possibles
+    # return render_template('results.html', possibles = possibles)    
 
 def identify(filename):
     test_image(filename)
-    who_is_it('./images/kohli.jpg', database, FRmodel)
+    possibles = who_is_it(filename, database, FRmodel)
+    return possibles

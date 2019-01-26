@@ -1,3 +1,14 @@
+<html>
+   <body>
+      <form method = "POST" action = "http://localhost:5000/storeimager"
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+         <input type = "submit"/>
+      </form>
+   </body>
+</html>
+
+
 {% extends "layout.html" %}
 {% block title %}FamilyWhere{% endblock %}
 {% block head %}
@@ -19,11 +30,13 @@
   </h3>
       <br/><br/>
       <div style="text-align: center;">
-    <form action = "http://localhost:5000/tester" method = "POST" 
+
+      <form method = "POST" action = "http://localhost:5000/storeimager"
          enctype = "multipart/form-data">
          <input type = "file" name = "file" /><br/><br/>
          <input type = "submit" class="btn btn-dark"/>
       </form>
+
   </div>
 
   

@@ -1,9 +1,38 @@
-<html>
-    <head>
-        <tirle>hOME PAGE</title>
-        <link rel="shortcut icon" href="favicon.ico">
-    </head>
-    <body>
-        <h1> Welcome</h1>
-    </body>
-</html>
+{% extends "layout.html" %}
+{% block title %}FamilyWhere{% endblock %}
+{% block head %}
+<link rel="shortcut icon" href="favicon.ico">
+{% endblock %}
+
+{% block body %}
+<div class="container-fluid unselectable"
+      style="background: url('../static/images/back1.jpg');
+            display: table;
+            overflow: hidden;
+            height: 100%;
+            min-height: 100%;
+            position: absolute;">
+  <h1 style="text-align:center;
+            color: white;
+            font-size: 5.0em;
+            padding-top: 20px;">
+    <b>Welcome to FamilyWhere</b>
+  </h1>
+  <br>
+  <br>
+  <div style="text-align: center;">
+    <a href="/store">
+      <button type="button" class="btn btn-dark">Submit a Info</button>
+    </a>
+    <a href="/test">
+        <button type="button" class="btn btn-dark">Find Relative</button>
+    </a>
+  </div>
+  <!-- <div style="color: white; background-color: black; height: 60px; line-height: 60px; margin: 0px 10px 0px 0px; width: 100%;">
+      <span>Copyright-2018 Omkar Ajnadkar</span>
+  </div> -->
+</div>
+{% endblock%}
+
+{% block script %}
+{% endblock %}
