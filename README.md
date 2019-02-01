@@ -42,10 +42,17 @@ A Deep Learning based solution for finding children and people lost in public ga
 - Google Colab
 - Android Studio
 
-## Contributors
+## Developed by
 
 - Omkar Ajnadkar
 - Ayush Mahajan
 - Satender Kumar
 
+## Developed at
+
+
+
+<a href="http://hack36.com/">
+    <img src="http://hack36.com/images/h36logo_small.png" alt="Hack36 2019">
+</a>
 
